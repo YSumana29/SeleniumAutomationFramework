@@ -2,6 +2,8 @@ package utilities;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import java.io.File;
 import java.io.FileReader;
 
 import org.openqa.selenium.By;
@@ -9,7 +11,9 @@ import org.openqa.selenium.By;
 public class LocatorReader {
 
     private static JsonObject locators;
-    private static final String LOCATOR_FILE_PATH = "C://Users//User//Automation//SeleniumAutomationFramework//SeleniumAutomationFramework//SeleniumAutomationFramework//src//main//java//resources//locators//locators.json";
+    private static String relativeFilePath = "src/main/java/resources/locators/locators.json";
+    private static final String LOCATOR_FILE_PATH = System.getProperty("user.dir")
+            + File.separator + relativeFilePath.replace("/", File.separator);
 
     static {
         try (FileReader reader = new FileReader(LOCATOR_FILE_PATH)) {
@@ -59,8 +63,7 @@ public class LocatorReader {
 
     /*
      * public static void main(String[] args) {
-     * System.out.println(locators.getAsJsonObject("name").toString());
-     * 
+     * System.out.println(LOCATOR_FILE_PATH + "The file Path is");
      * }
      */
 }

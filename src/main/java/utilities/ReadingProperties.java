@@ -1,5 +1,6 @@
 package utilities;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -7,8 +8,12 @@ public class ReadingProperties {
 
     private static final Properties envProperties = new Properties();
     private static final Properties browserProperties = new Properties();
-    private static final String ENV_FILE_PATH = "C://Users//User//Automation//SeleniumAutomationFramework//SeleniumAutomationFramework//SeleniumAutomationFramework//src//main//java//resources//config//environment.properties";
-    private static final String BROWSER_FILE_PATH = "C://Users//User//Automation//SeleniumAutomationFramework//SeleniumAutomationFramework//SeleniumAutomationFramework//src//main//java//resources//config//browser.properties";
+    private static String ENV_RelativeFilePath = "src/main/java/resources/config/environment.properties";
+    private static String BROWSER_RelativeFilePath = "src/main/java/resources/config/browser.properties";
+    private static final String ENV_FILE_PATH = System.getProperty("user.dir")
+            + File.separator + ENV_RelativeFilePath.replace("/", File.separator);
+    private static final String BROWSER_FILE_PATH = System.getProperty("user.dir")
+            + File.separator + BROWSER_RelativeFilePath.replace("/", File.separator);
 
     static {
         loadProperties(envProperties, ENV_FILE_PATH);
