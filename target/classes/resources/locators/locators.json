@@ -1,0 +1,30 @@
+{
+    "loginPage": {
+        "searchBox": {
+            "type": "className",
+            "value": "gLFyf"
+        },
+        "age": {
+            "type": "",
+            "value": ""
+        },
+        "isEmployee": {
+            "type": "",
+            "value": ""
+        }
+    },
+    "productsPage": {
+        "name": {
+            "type": "",
+            "value": ""
+        },
+        "age": {
+            "type": "",
+            "value": ""
+        },
+        "isEmployee": {
+            "type": "",
+            "value": ""
+        }
+    }
+}
