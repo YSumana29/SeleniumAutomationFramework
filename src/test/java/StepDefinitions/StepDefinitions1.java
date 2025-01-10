@@ -1,12 +1,18 @@
 package StepDefinitions;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import Base.browserInitialization;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,6 +24,8 @@ public class StepDefinitions1 {
     browserInitialization browserDriver = new browserInitialization();
     WebDriver driver = browserDriver.getDriver();
 
+    private List<Map<String, String>> testData;
+
     @Given("the user is on login page")
     public void navigate_to_login_page() throws UnsupportedEncodingException {
         String url = ReadingProperties.getEnvironmentPropertyValue("stage");
@@ -28,7 +36,7 @@ public class StepDefinitions1 {
     public void check_page_title() {
         String actualPageTitle = driver.getTitle();
         String expectedPageTitle = "abcdefg";
-        // Assert.assertEquals(actualPageTitle, expectedPageTitle);
+        Assert.assertEquals(actualPageTitle, expectedPageTitle);
     }
 
     @When("I click on element {string}")
